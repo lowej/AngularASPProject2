@@ -1,0 +1,16 @@
+﻿<form ng-submit="crazy()">
+    <label for="emailAddress">Email Address:</label>
+    <input type="email" ng-model="crazyForm.emailAddress" id="emailAddress" />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" ng-model="crazyForm.password" />
+
+    <label for="rememberMe">Remember Me:</label>
+    <input type="checkbox" id="rememberMe" ng-model="crazyForm.rememberMe" />
+
+    <button type="submit">Login</button>
+</form>
+
+<div ng-if="crazyForm.loginFailure">
+    D'oh!
+</div>
