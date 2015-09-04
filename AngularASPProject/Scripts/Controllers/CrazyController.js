@@ -7,6 +7,7 @@
         loginFailure: false
     };
 
+
     $scope.crazy = function () {
         var result = CrazyFactory($scope.crazyForm.emailAddress, $scope.crazyForm.password, $scope.crazyForm.rememberMe);
         result.then(function (result) {
