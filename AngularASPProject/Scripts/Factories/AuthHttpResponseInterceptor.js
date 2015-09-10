@@ -1,4 +1,4 @@
-﻿var AuthHttpResponseInterceptor = function ($q, $location) {
+﻿var AuthHttpResponseInterceptor = function ($q, $location, $injector) {
 
     console.log("I'm here in the interceptor");
 
@@ -12,12 +12,11 @@
         responseError: function (rejection) {
             if (rejection.status === 401) {
                 console.log("Response Error 401", rejection);
-                //login view not working as I created manually.  using crazy as the name instead
-                $location.path('/crazy').search('returnUrl', $location.path());
+                $injector.get('$state').go('loginRegister', { returnUrl: $location.path() });
             }
             return $q.reject(rejection);
         }
     }
 }
 
-AuthHttpResponseInterceptor.$inject = ['$q', '$location'];
+AuthHttpResponseInterceptor.$inject = ['$q', '$location', '$injector'];

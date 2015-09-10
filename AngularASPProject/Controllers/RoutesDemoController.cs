@@ -20,5 +20,11 @@ namespace AngularASPProject.Controllers
         {
             return View();
         }
+
+        public ActionResult Four()
+        { 
+            return View(); 
+        }
+
     }
 }

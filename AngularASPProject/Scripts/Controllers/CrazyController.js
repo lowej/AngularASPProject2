@@ -1,9 +1,9 @@
-﻿var CrazyController = function ($scope, $routeParams, $location, CrazyFactory) {
+﻿var CrazyController = function ($scope, $stateParams, $location, CrazyFactory) {
     $scope.crazyForm = {
         emailAddress: '',
         password: '',
         rememberMe: false,
-        returnUrl: $routeParams.returnUrl,
+        returnUrl: $stateParams.returnUrl,
         loginFailure: false
     };
 
@@ -24,4 +24,4 @@
     }
 }
 
-CrazyController.$inject = ['$scope', '$routeParams', '$location', 'CrazyFactory'];
+CrazyController.$inject = ['$scope', '$stateParams', '$location', 'CrazyFactory'];

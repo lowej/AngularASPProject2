@@ -12,12 +12,15 @@
         ).
         success(function (data) {
             if (data == "True") {
+                console.log('Factory - success===true');
                 deferredObject.resolve({ success: true });
             } else {
+                console.log('Factory - success===false');
                 deferredObject.resolve({ success: false });
             }
         }).
         error(function () {
+            console.log('Factory - error');
             deferredObject.resolve({ success: false });
         });
 

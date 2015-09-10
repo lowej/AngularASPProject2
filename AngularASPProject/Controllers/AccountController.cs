@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AngularASPProject.Models;
+using System;
+using System.Diagnostics;
 
 namespace AngularASPProject.Controllers
 {
@@ -77,7 +79,13 @@ namespace AngularASPProject.Controllers
         {
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
             var result = await UserManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded) return false;
+
+            Debug.WriteLine("===========================================================================");
+            Debug.WriteLine("==========================User created =  " + result.Succeeded);
+            if (!result.Succeeded)
+            {
+                return false;
+            }
             await SignInManager.SignInAsync(user, false, false);
             return true;
         }
